@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Layout from '../Layout'
+import ResultTable from './ResultTable'
 
 function Results() {
   return (
@@ -39,6 +40,7 @@ function Results() {
             <div id="form" className='flex flex-col gap-4 items-center justify-center'>
                <Link to="/" className='bg-rose-500 text-white rounded-lg cursor-pointer px-6 py-3'>Reset</Link>
             </div>
+            <ResultTable/>
          </main>
       </div>
    </Layout>
