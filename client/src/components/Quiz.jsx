@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Layout from '../Layout'
 import Questions from './Questions'
+import { useSelector } from 'react-redux'
 
 const Quiz = () => {
+   const questions = useSelector(state => state)
+
+   useEffect(() => {
+      console.log(questions)
+   }, [])
   
    // next
    const next = ()=>{

@@ -2,7 +2,7 @@ import React from 'react'
 
 function ResultTable() {
   return (
-    <div className='mt-4'>
+    <div className='mt-4 '>
       <table className='w-full'>
          <thead>
             <tr className='bg-gray-300'>

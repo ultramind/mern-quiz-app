@@ -31,7 +31,7 @@ const Main = () => {
             </li>
          </ol>
          <form id="form" className='flex flex-col gap-4 items-center justify-center'>
-            <input type="text" ref={inputRef} name="price" id="price" class="block w-[50%] rounded-md border-0 py-2 pl-4 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Username"/>
+            <input type="text" ref={inputRef} name="price" id="price" className="block w-[50%] rounded-md border-0 py-2 pl-4 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Username"/>
             <button className='bg-rose-500 text-white rounded-lg cursor-pointer px-6 py-3'>Start Quiz</button>
          </form>
       </main>
