@@ -1,22 +1,25 @@
 import React, { useEffect } from 'react'
 import Layout from '../Layout'
 import Questions from './Questions'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { moveNextQuestion, movePrevQuestion } from '../redux/questionReducer'
 
 const Quiz = () => {
-   const questions = useSelector(state => state)
-
-   useEffect(() => {
-      console.log(questions)
-   }, [])
-  
+   const {queue, trace} = useSelector(state => state.questions)
+   const dispatch = useDispatch()
    // next
    const next = ()=>{
       console.log("Next Question")
+      if (queue.length > trace) {
+         dispatch(moveNextQuestion())
+      }
    }
 
    const prev = ()=>{
       console.log("Prev Question")
+      if (trace > 0) {
+         dispatch(movePrevQuestion())
+      }
    }
   return (
    <Layout>
