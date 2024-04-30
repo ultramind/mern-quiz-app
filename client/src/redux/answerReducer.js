@@ -11,10 +11,13 @@ const answerReducer = createSlice({
    reducers: {
       setUserId: (state, action)=>{
          state.userId = action.payload
+      },
+      pushResultAction: (state, action)=>{
+         state.results.push(action.payload)
       }
    }
 })
 
-export const {setUserId} = answerReducer.actions;
+export const {setUserId, pushResultAction} = answerReducer.actions;
 
 export default answerReducer.reducer;

@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import data from '../database/data'
 import { useFetchQuestions } from '../hooks/FetchQuestions';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { PushAnswer } from '../hooks/setResult';
 
-export default function Questions() {
+export default function Questions({onChecked}) {
    const [selected, setSelected] = useState(false)
    const [{isLoading, apiData, serverError}] = useFetchQuestions();
+   const dispatch = useDispatch();
 
 
    const questions = useSelector (state => state.questions.queue)
@@ -13,8 +15,8 @@ export default function Questions() {
 
    let question = questions[trace];
    
-   const onSelect = ()=>{
-      setSelected(prev=> !prev)
+   const onSelect = (i)=>{
+      onChecked(i)
    }
 
    if (isLoading) {
@@ -35,9 +37,8 @@ export default function Questions() {
       <ol className='list-decimal ml-8 flex flex-col gap-4 mb-4' key={question?.id}>
          {question?.options.map((q,i)=>(
             <li className='flex gap-4 text-lg items-center' key={i}>
-               <div className={`w-6 h-6 border-[5px] border-gray-500 rounded-full bg-rose-500 ${selected ? 'bg-rose-500' : 'bg-transparent'}`}></div>
-               <input type="radio" value={true} onChange={onSelect} name='options' id={`q-${i}option`} className='hidden' />
-               <label htmlFor={`q-${i}option`}>{q}</label>
+               <input type="radio" value={false} onChange={()=>onSelect(i)} name='options' id={`q${i}-option`} className='h-[1.5rem] w-[1.5rem] accent-rose-500' />
+               <label htmlFor={`q${i}-option`}>{q}</label>
             </li>
          ))}
          
